@@ -1,0 +1,44 @@
+<div class="py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+        <%= image_tag @advertisement.image, class: "img-fluid" %>
+        <h1 class="mt-5">
+          <%= @advertisement.title %>
+        </h1>
+        <h3 class="txt-primary">
+          <%= number_to_currency @advertisement.price %>
+        </h3>
+        <small class="text-muted">
+          <%= l @advertisement.created_at, format: "%d/%m/%Y à %Hh%M" %>
+        </small>
+        <p class="mt-3">
+          <%= @advertisement.content %>
+        </p>
+      </div>
+      <div class="col-md-4 border-left">
+        <p>
+          Vendeur&nbsp;:
+          <br>
+          <strong>
+            <%= @advertisement.author %>
+          </strong>
+        </p>
+        <p>
+          Email&nbsp;:
+          <br>
+          <strong>
+            <%= mail_to @advertisement.email %>
+          </strong>
+        </p>
+        <p>
+          Téléphone&nbsp;:
+          <br>
+          <strong>
+            <%= @advertisement.phone %>
+          </strong>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

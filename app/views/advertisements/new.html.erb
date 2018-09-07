@@ -1,0 +1,77 @@
+<div class="py-5">
+  <div class="container">
+    <h1>Déposer une annonce</h1>
+    <div class="row mt-5">
+      <div class="col-md-8">
+        <%= form_with model: @advertisement do |form| %>
+          <div class="form-group mb-4">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <i class="far fa-fw fa-edit"></i>
+                </div>
+              </div>
+              <%= form.text_field :title, class: "form-control form-control-lg", placeholder: "Titre de votre annonce" %>
+            </div>
+          </div>
+          <div class="form-group mb-4">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <i class="far fa-fw fa-user"></i>
+                </div>
+              </div>
+              <%= form.text_field :author, class: "form-control form-control-lg", placeholder: "Vos nom et prénom" %>
+            </div>
+          </div>
+          <div class="form-group mb-4">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <i class="far fa-fw fa-envelope"></i>
+                </div>
+              </div>
+              <%= form.email_field :email, class: "form-control form-control-lg", placeholder: "Votre email" %>
+            </div>
+          </div>
+          <div class="form-group mb-4">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <i class="fa fa-fw fa-mobile-alt"></i>
+                </div>
+              </div>
+              <%= form.text_field :phone, class: "form-control form-control-lg", placeholder: "Votre numéro de téléphone" %>
+            </div>
+          </div>
+          <div class="form-group mb-4">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <i class="fa fa-fw fa-euro-sign"></i>
+                </div>
+              </div>
+              <%= form.number_field :price, class: "form-control form-control-lg", placeholder: "Prix proposé" %>
+            </div>
+          </div>
+          <div class="form-group mb-4">
+            <div class="custom-file">
+              <%= form.file_field :image, class: "custom-file-input form-control-lg", placeholder: "Image", lang: "fr" %>
+              <%= form.label :image, "Choisir une image", class: "custom-file-label" %>
+            </div>
+          </div>
+          <div class="form-group mb-4">
+            <%= form.text_area :content, class: "form-control form-control-lg", placeholder: "Description complète de votre annonce", rows: 4 %>
+          </div>
+          <%= form.submit "Publier l'annonce", class: "btn btn-lg btn-primary" %>
+        <% end %>
+      </div>
+      <div class="col-md-4 border bg-light rounded shadow-sm p-3">
+        <p class="mb-0">
+          <i class="fa fa-info-circle"></i>
+
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
