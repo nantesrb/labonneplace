@@ -36,6 +36,8 @@ ActiveRecord::Schema.define(version: 2018_09_05_091801) do
   create_table "advertisements", force: :cascade do |t|
     t.string "title"
     t.string "author"
+    t.string "email"
+    t.string "phone"
     t.text "content"
     t.float "price"
     t.datetime "created_at", null: false

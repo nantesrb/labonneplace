@@ -3,10 +3,10 @@
     <h1 class="jumbotron-heading">Achetez. Vendez. Partagez.</h1>
     <p class="lead text-muted">Trouvez la bonne affaire parmi <strong><%= Advertisement.count %> annonces</strong> sur labonneplace.</p>
     <p>
-      <a href="#" class="btn btn-primary btn-lg my-2 mr-2">
+      <%= link_to new_advertisement_path, class: "btn btn-primary btn-lg my-2 mr-2" do %>
         <i class="far fa-edit"></i>
         Déposer une annonce
-      </a>
+      <% end %>
       <a href="#" class="btn btn-outline-primary btn-lg my-2">
         <i class="fa fa-crosshairs"></i>
         Rechercher autour de moi
@@ -22,18 +22,17 @@
           <div class="card mb-4 shadow-sm">
             <%= image_tag advertisement.image, class: "card-img-top" %>
             <div class="card-body">
-              <p class="card-text">
+              <h5 class="card-title">
                 <%= advertisement.title %>
-                <br>
+              </h5>
+              <p class="card-text">
                 <strong class="txt-primary">
                   <%= number_to_currency advertisement.price %>
                 </strong>
               </p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">
-                    Voir l'annonce
-                  </button>
+                  <%= link_to "Voir l'annonce", advertisement, class: "btn btn-sm btn-outline-secondary" %>
                 </div>
                 <small class="text-muted">
                   <%= l advertisement.created_at, format: "%d/%m/%Y à %Hh%M" %>

@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Un site créé avec amour">
     <meta name="author" content="Rails Girls Nantes 2018">
     <%= favicon_link_tag "favicon.png" %>
-    <title>labonneplace, site d'annonces</title>
+    <title>labonneplace, site de fausses annonces</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag 'https://getbootstrap.com/docs/4.1/dist/css/bootstrap.min.css' %>
@@ -38,10 +38,10 @@
       </div>
       <div class="navbar navbar-dark bg-rg shadow-sm">
         <div class="container d-flex justify-content-between">
-          <a href="#" class="navbar-brand d-flex align-items-center">
+          <%= link_to root_path, class: "navbar-brand d-flex align-items-center" do %>
             <i class="mr-2 fa fa-map-marker-alt"></i>
             <strong>labonneplace</strong>
-          </a>
+          <% end %>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -56,7 +56,7 @@
         <p class="float-right">
           <a href="#">Haut de page <i class="fa fa-long-arrow-alt-up"></i></a>
         </p>
-        <p><strong>labonneplace</strong>, une idée pas du tout originale de <a href="http://www.railsgirls-nantes.org/">Rails Girls Nantes</a>.</p>
+        <p><strong>labonneplace</strong>, une idée pas du tout originale de <a href="http://www.railsgirls-nantes.org/" target="_blank">Rails Girls Nantes</a>.</p>
         <p>Pas de &copy; ici, on veut juste commencer à apprendre à construire le Web.</p>
       </div>
     </footer>
