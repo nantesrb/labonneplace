@@ -16,28 +16,28 @@
 </section>
 <div class="album py-5 bg-light">
   <div class="container">
-    <div class="row">
+    <div class="card-columns">
       <% @advertisements.each do |advertisement| %>
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
+        <div class="card mb-4 shadow-sm">
+          <% if advertisement.image.attachment.present? %>
             <%= image_tag advertisement.image, class: "card-img-top" %>
-            <div class="card-body">
-              <h5 class="card-title">
-                <%= advertisement.title %>
-              </h5>
-              <p class="card-text">
-                <strong class="txt-primary">
-                  <%= number_to_currency advertisement.price %>
-                </strong>
-              </p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <%= link_to "Voir l'annonce", advertisement, class: "btn btn-sm btn-outline-secondary" %>
-                </div>
-                <small class="text-muted">
-                  <%= l advertisement.created_at, format: "%d/%m/%Y à %Hh%M" %>
-                </small>
+          <% end %>
+          <div class="card-body">
+            <h5 class="card-title">
+              <%= advertisement.title %>
+            </h5>
+            <p class="card-text">
+              <strong class="txt-primary">
+                <%= number_to_currency advertisement.price %>
+              </strong>
+            </p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <%= link_to "Voir l'annonce", advertisement, class: "btn btn-sm btn-outline-secondary" %>
               </div>
+              <small class="text-muted">
+                <%= l advertisement.created_at, format: "%d/%m/%Y à %Hh%M" %>
+              </small>
             </div>
           </div>
         </div>

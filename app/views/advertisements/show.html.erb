@@ -2,7 +2,9 @@
   <div class="container">
     <div class="row">
       <div class="col-md-8">
-        <%= image_tag @advertisement.image, class: "img-fluid" %>
+        <% if @advertisement.image.attachment.present? %>
+          <%= image_tag @advertisement.image, class: "img-fluid" %>
+        <% end %>
         <h1 class="mt-5">
           <%= @advertisement.title %>
         </h1>
