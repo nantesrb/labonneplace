@@ -11,7 +11,57 @@ Vous avez deux options possibles pour aborder le sujet :
 
 Dans tous les cas, les mentors sont là pour vous accompagner. Ils vous expliqueront les fondamentaux de la programmation web, de Ruby on Rails et de l'architecture MVC. Vous pouvez compter sur leur aide pour réaliser tout ce que vous entreprendrez sur ce projet.
 
-# Améliorations envisageables
+## Option 1 : vous décidez de partir d'un projet existant
+
+### Installer l'application
+
+1. Récupérer les sources du projet :
+
+```
+git clone git@github.com:nantesrb/labonneplace.git
+```
+
+> :hand: Si cela ne fonctionne pas, demandez à votre mentor de vous copier le projet sur votre ordinateur.
+
+2. Se placer dans le répertoire du projet :
+
+```
+cd labonneplace
+```
+
+3. Installer les dépendances :
+
+```
+bundle
+```
+
+4. Initialiser la base de données :
+
+```
+rails db:create
+```
+
+```
+rails db:migrate
+```
+
+5. Créer des données de test en base de données :
+
+```
+rails db:seed
+```
+
+6. Démarrer le serveur :
+
+```
+rails s
+```
+
+7. Se rendre sur la page d'accueil : http://localhost:3000
+
+Voilà, vous êtes désormais prêt(e) à ajouter votre touche personnelle !
+
+### Améliorations envisageables
 
 Si vous êtes en manque d'inspiration, voici quelques propositions d'améliorations qui pourraient être apportées à l'application *labonneplace*. Choisissez celles qui vous tentent le plus ! Votre mentor se fera un plaisir de vous mettre sur la voie, et vous aider pas à pas pour la mise en place
 
@@ -26,3 +76,44 @@ Si vous êtes en manque d'inspiration, voici quelques propositions d'améliorati
 - Ajouter des annonces en favoris.
 - Intégrer un module de chat avec le vendeur.
 - Ajouter une adresse et permettre la recherche géolocalisée (« Rechercher autour de moi »).
+
+## Option 2 : vous décidez de partir de zéro et de créer l'application pas à pas
+
+### Déroulement
+
+Voyez avec votre mentor pour qu'il vous explique chaque étape de la création d'un nouveau projet, d'un premier modèle d'annonce, du contrôleur, des vues de liste et de détail d'une annonce, etc. Tout ceci est très classique, et vous êtes bien sûr libre d'adapter le besoin selon vos envies !
+
+### Pour les mentors : mise en place de l'upload d'images avec Active Storage
+
+À un moment, vous voudrez sûrement pouvoir ajouter une photo à une annonce. Pour vous aider (et ceci s'adresse surtout aux mentors), voici les différentes étapes qui permettent de mettre cela en place à l'aide d'[Active Storage](https://guides.rubyonrails.org/active_storage_overview.html).
+
+1. Générer la migration pour les tables Active Storage :
+
+```
+rails active_storage:install
+```
+
+2. Déclarer qu'une annonce peut avoir une photo (édition de `app/models/advertisement.rb`) :
+
+```ruby
+
+class Advertisement < ApplicationRecord
+  
+  has_one_attached :image
+  
+  # ...
+  
+end
+```
+
+3. Modifier le formulaire de création d'annonce pour ajouter un champ de type `file` (édition de `app/views/advertisements/new.html.erb`) :
+
+```erb
+<%= form_with model: @advertisement do |form| %>
+  ...
+  <%= form.file_field :image %>
+  ...
+<% end %>
+```
+
+Et voilà, c'est tout ! Facile hein ? :smirk:
